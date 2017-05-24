@@ -294,6 +294,12 @@ class UrlGenerator implements UrlGeneratorInterface {
     $options['route'] = $route;
     if ($options['path_processing']) {
       $path = $this->processPath($path, $options, $generated_url);
+
+      if (isset($options['fragment'])) {
+        if (($fragment = trim($options['fragment'])) != '') {
+          $fragment = '#' . $fragment;
+        }
+      }
     }
     // The contexts base URL is already encoded
     // (see Symfony\Component\HttpFoundation\Request).
