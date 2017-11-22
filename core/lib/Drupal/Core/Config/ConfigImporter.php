@@ -875,7 +875,7 @@ class ConfigImporter {
 
       case 'update':
         if (!$target_exists) {
-          $this->logError($this->t('Update target "@name" is missing.', ['@name' => $name]));
+          $this->logError($this->t('Update target "@name" is missing (collection: @collection).', ['@name' => $name, '@collection' => $collection]));
           // Mark as processed so that the synchronization continues. Once the
           // the current synchronization is complete it will show up as a
           // create.
